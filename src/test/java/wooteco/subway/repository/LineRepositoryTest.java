@@ -2,6 +2,7 @@ package wooteco.subway.repository;
 
 import java.time.LocalTime;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.jdbc.DataJdbcTest;
@@ -14,6 +15,7 @@ public class LineRepositoryTest {
     @Autowired
     private LineRepository lineRepository;
 
+    @DisplayName("노선에 지하철 역 추가")
     @Test
     void addLineStation() {
         // given

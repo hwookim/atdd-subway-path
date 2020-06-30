@@ -9,7 +9,7 @@ import wooteco.subway.dto.StationResponse;
 
 public class StationAcceptanceTest extends AcceptanceTest {
 
-    @DisplayName("지하철역을 관리한다")
+    @DisplayName("지하철역 추가 / 삭제")
     @Test
     void manageStation() {
         // when

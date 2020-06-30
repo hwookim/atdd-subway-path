@@ -6,6 +6,7 @@ import java.time.LocalTime;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -22,6 +23,7 @@ public class LineTest {
         line.addLineStation(new Edge(2L, 3L, 10, 10));
     }
 
+    @DisplayName("노선에 첫번째 역 추가")
     @Test
     void addLineStation() {
         Long addStationId = 4L;
@@ -35,6 +37,7 @@ public class LineTest {
         assertThat(edge.getStationId()).isEqualTo(1L);
     }
 
+    @DisplayName("노선의 지하철 역 검색")
     @Test
     void getLineStations() {
         List<Long> stationIds = line.getStationIds();
@@ -45,6 +48,7 @@ public class LineTest {
         assertThat(stationIds.get(2)).isEqualTo(3L);
     }
 
+    @DisplayName("노선에서 역 삭제")
     @ParameterizedTest
     @ValueSource(longs = {1L, 2L, 3L})
     void removeLineStation(Long stationId) {

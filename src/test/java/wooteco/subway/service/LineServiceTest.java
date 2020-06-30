@@ -73,6 +73,7 @@ public class LineServiceTest {
         line2.addLineStation(new Edge(null, 4L, 10, 10));
     }
 
+    @DisplayName("노선에 첫번째 역 추가")
     @Test
     void addLineStationAtTheFirstOfLine() {
         when(lineRepository.findById(line1.getId())).thenReturn(Optional.of(line1));
@@ -90,6 +91,7 @@ public class LineServiceTest {
         assertThat(stationIds.get(3)).isEqualTo(3L);
     }
 
+    @DisplayName("노선에 중간역 추가")
     @Test
     void addLineStationBetweenTwo() {
         when(lineRepository.findById(line1.getId())).thenReturn(Optional.of(line1));
@@ -107,6 +109,7 @@ public class LineServiceTest {
         assertThat(stationIds.get(3)).isEqualTo(3L);
     }
 
+    @DisplayName("노선의 마지막 역 추가")
     @Test
     void addLineStationAtTheEndOfLine() {
         when(lineRepository.findById(line1.getId())).thenReturn(Optional.of(line1));
@@ -124,6 +127,7 @@ public class LineServiceTest {
         assertThat(stationIds.get(3)).isEqualTo(4L);
     }
 
+    @DisplayName("노선의 첫번째 역 삭제")
     @Test
     void removeLineStationAtTheFirstOfLine() {
         when(lineRepository.findById(line1.getId())).thenReturn(Optional.of(line1));
@@ -136,6 +140,7 @@ public class LineServiceTest {
         assertThat(stationIds.get(1)).isEqualTo(3L);
     }
 
+    @DisplayName("노선의 중간역 삭제")
     @Test
     void removeLineStationBetweenTwo() {
         when(lineRepository.findById(line1.getId())).thenReturn(Optional.of(line1));
@@ -146,6 +151,7 @@ public class LineServiceTest {
         assertThat(stationIds.get(1)).isEqualTo(3L);
     }
 
+    @DisplayName("노선의 마지막 역 삭제")
     @Test
     void removeLineStationAtTheEndOfLine() {
         when(lineRepository.findById(line1.getId())).thenReturn(Optional.of(line1));
@@ -158,6 +164,7 @@ public class LineServiceTest {
         assertThat(stationIds.get(1)).isEqualTo(2L);
     }
 
+    @DisplayName("특정 노선의 세부 정보 조회")
     @Test
     void findLineWithStationsById() {
         List<Station> stations = Lists
@@ -170,6 +177,7 @@ public class LineServiceTest {
         assertThat(lineDetailResponse.getStations()).hasSize(3);
     }
 
+    @DisplayName("전체 노선의 세부 정보 조회")
     @Test
     void findDetailLines() {
         List<Line> lines = Lists.newArrayList(line1, line2);
@@ -192,6 +200,7 @@ public class LineServiceTest {
         assertThat(response.get(1).getStations().get(0).getId()).isEqualTo(station4.getId());
     }
 
+    @DisplayName("최단경로 검색")
     @ParameterizedTest
     @EnumSource(PathType.class)
     void findShortestPath(PathType pathType) {

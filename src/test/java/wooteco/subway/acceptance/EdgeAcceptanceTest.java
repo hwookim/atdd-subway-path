@@ -10,7 +10,7 @@ import wooteco.subway.dto.StationResponse;
 
 public class EdgeAcceptanceTest extends AcceptanceTest {
 
-    @DisplayName("지하철 노선에서 지하철역 추가 / 제외")
+    @DisplayName("지하철 노선에서 지하철역 추가 / 삭제")
     @Test
     void manageLineStation() {
         StationResponse stationResponse1 = createStation(STATION_NAME_KANGNAM);

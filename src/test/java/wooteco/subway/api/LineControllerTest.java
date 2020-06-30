@@ -8,6 +8,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -32,13 +33,13 @@ public class LineControllerTest {
     @MockBean
     private LineService lineService;
 
+    @DisplayName("전체 지하철 노선도 조회")
     @Test
     void ETag() throws Exception {
         List<LineDetailResponse> response = Arrays
             .asList(createMockResponse(), createMockResponse());
         given(lineService.findDetailLines()).willReturn(response);
 
-        // TODO: 전체 지하철 노선도 정보를 조회하는 URI 입력하기
         String uri = "/lines/detail";
 
         MvcResult mvcResult = mockMvc.perform(get(uri))

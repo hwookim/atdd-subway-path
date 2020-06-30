@@ -11,7 +11,7 @@ import wooteco.subway.dto.LineResponse;
 
 public class LineAcceptanceTest extends AcceptanceTest {
 
-    @DisplayName("지하철 노선을 관리한다")
+    @DisplayName("지하철 노선을 추가 / 삭제")
     @Test
     void manageLine() {
         // when
