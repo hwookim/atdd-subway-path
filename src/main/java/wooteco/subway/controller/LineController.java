@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import wooteco.subway.domain.Line;
+import wooteco.subway.dto.EdgeCreateRequest;
 import wooteco.subway.dto.LineDetailResponse;
 import wooteco.subway.dto.LineRequest;
 import wooteco.subway.dto.LineResponse;
-import wooteco.subway.dto.LineStationCreateRequest;
 import wooteco.subway.service.LineService;
 
 @RestController
@@ -68,16 +68,16 @@ public class LineController {
     }
 
     @PostMapping("/lines/{lineId}/stations")
-    public ResponseEntity<Void> addLineStation(@PathVariable Long lineId,
-        @RequestBody LineStationCreateRequest view) {
-        lineService.addLineStation(lineId, view);
+    public ResponseEntity<Void> addEdge(@PathVariable Long lineId,
+        @RequestBody EdgeCreateRequest view) {
+        lineService.addEdge(lineId, view);
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/lines/{lineId}/stations/{stationId}")
-    public ResponseEntity<Void> removeLineStation(@PathVariable Long lineId,
+    public ResponseEntity<Void> removeEdge(@PathVariable Long lineId,
         @PathVariable Long stationId) {
-        lineService.removeLineStation(lineId, stationId);
+        lineService.removeEdge(lineId, stationId);
         return ResponseEntity.noContent().build();
     }
 }

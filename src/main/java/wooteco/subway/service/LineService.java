@@ -12,9 +12,9 @@ import wooteco.subway.domain.path.PathType;
 import wooteco.subway.domain.path.ShortestPath;
 import wooteco.subway.domain.path.ShortestPathFactory;
 import wooteco.subway.domain.vo.Edges;
+import wooteco.subway.dto.EdgeCreateRequest;
 import wooteco.subway.dto.LineDetailResponse;
 import wooteco.subway.dto.LineRequest;
-import wooteco.subway.dto.LineStationCreateRequest;
 import wooteco.subway.dto.PathResponse;
 import wooteco.subway.repository.LineRepository;
 import wooteco.subway.repository.StationRepository;
@@ -49,19 +49,19 @@ public class LineService {
         lineRepository.deleteById(id);
     }
 
-    public void addLineStation(Long id, LineStationCreateRequest request) {
+    public void addEdge(Long id, EdgeCreateRequest request) {
         Line line = lineRepository.findById(id)
             .orElseThrow(() -> new NoSuchElementException("노선이 존재하지 않습니다."));
         Edge edge = new Edge(request.getPreStationId(), request.getStationId(),
             request.getDistance(), request.getDuration());
-        line.addLineStation(edge);
+        line.addEdge(edge);
         lineRepository.save(line);
     }
 
-    public void removeLineStation(Long lineId, Long stationId) {
+    public void removeEdge(Long lineId, Long stationId) {
         Line line = lineRepository.findById(lineId)
             .orElseThrow(() -> new NoSuchElementException("노선이 존재하지 않습니다."));
-        line.removeLineStationById(stationId);
+        line.removeEdgeById(stationId);
         lineRepository.save(line);
     }
 

@@ -53,12 +53,12 @@ public class Line {
         this.updatedAt = LocalDateTime.now();
     }
 
-    public void addLineStation(Edge edge) {
+    public void addEdge(Edge edge) {
         edges.addEdge(edge);
     }
 
 
-    public void removeLineStationById(Long stationId) {
+    public void removeEdgeById(Long stationId) {
         edges.removeEdgeById(stationId);
     }
 

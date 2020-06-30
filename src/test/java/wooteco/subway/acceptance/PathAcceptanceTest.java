@@ -20,9 +20,9 @@ public class PathAcceptanceTest extends AcceptanceTest {
         StationResponse station2 = createStation(STATION_NAME_SEOLLEUNG);
         StationResponse station3 = createStation(STATION_NAME_YEOKSAM);
 
-        addLineStation(line.getId(), null, station1.getId());
-        addLineStation(line.getId(), station1.getId(), station2.getId(), 10, 5);
-        addLineStation(line.getId(), station2.getId(), station3.getId(), 10, 5);
+        addEdge(line.getId(), null, station1.getId());
+        addEdge(line.getId(), station1.getId(), station2.getId(), 10, 5);
+        addEdge(line.getId(), station2.getId(), station3.getId(), 10, 5);
 
         // when
         PathResponse response = calculatePath(station1.getName(), station3.getName(), "DISTANCE");

@@ -1,16 +1,16 @@
 package wooteco.subway.dto;
 
-public class LineStationCreateRequest {
+public class EdgeCreateRequest {
 
     private Long preStationId;
     private Long stationId;
     private int distance;
     private int duration;
 
-    public LineStationCreateRequest() {
+    public EdgeCreateRequest() {
     }
 
-    public LineStationCreateRequest(Long preStationId, Long stationId, int distance, int duration) {
+    public EdgeCreateRequest(Long preStationId, Long stationId, int distance, int duration) {
         this.preStationId = preStationId;
         this.stationId = stationId;
         this.distance = distance;

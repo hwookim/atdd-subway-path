@@ -37,7 +37,7 @@ function AdminEdge() {
     const lineId = $target.closest('.subway-line-item').dataset.id
     const stationId = $target.closest('.list-item').dataset.id
     api.line
-        .deleteLineStation(lineId, stationId)
+        .deleteEdge(lineId, stationId)
         .then(() => $target.closest('.list-item').remove())
         .catch(() => alert(ERROR_MESSAGE.COMMON))
   }
@@ -66,7 +66,7 @@ function AdminEdge() {
       duration: document.querySelector('#duration').value
     }
     api.line
-        .addLineStation(lineId, newEdge)
+        .addEdge(lineId, newEdge)
         .then(() => {
           createSubwayEdgeModal.toggle()
           initSubwayLinesView()

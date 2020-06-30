@@ -21,9 +21,9 @@ public class WholeSubwayAcceptanceTest extends AcceptanceTest {
         StationResponse station2 = createStation(STATION_NAME_YEOKSAM);
         StationResponse station3 = createStation(STATION_NAME_SEOLLEUNG);
 
-        addLineStation(line1.getId(), null, station1.getId());
-        addLineStation(line1.getId(), station1.getId(), station2.getId());
-        addLineStation(line2.getId(), null, station3.getId());
+        addEdge(line1.getId(), null, station1.getId());
+        addEdge(line1.getId(), station1.getId(), station2.getId());
+        addEdge(line2.getId(), null, station3.getId());
 
         // when
         List<LineDetailResponse> response = getDetailLines();

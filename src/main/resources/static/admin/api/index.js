@@ -60,8 +60,8 @@ const api = (() => {
     getAllDetail() {
       return requestWithJsonData(`/lines/detail`)
     },
-    addLineStation(lineId, lineStationCreateRequestView) {
-      return request(`/lines/${lineId}/stations`, METHOD.POST(lineStationCreateRequestView))
+    addEdge(lineId, edgeCreateRequestView) {
+      return request(`/lines/${lineId}/stations`, METHOD.POST(edgeCreateRequestView))
     },
     create(data) {
       return requestWithJsonData(`/lines`, METHOD.POST(data))
@@ -69,7 +69,7 @@ const api = (() => {
     update(id, data) {
       return request(`/lines/${id}`, METHOD.PUT(data))
     },
-    deleteLineStation(lineId, stationId) {
+    deleteEdge(lineId, stationId) {
       return request(`/lines/${lineId}/stations/${stationId}`, METHOD.DELETE())
     },
     delete(id) {

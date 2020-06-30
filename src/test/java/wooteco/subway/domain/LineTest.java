@@ -18,16 +18,16 @@ public class LineTest {
     @BeforeEach
     void setUp() {
         line = new Line(1L, "2호선", LocalTime.of(05, 30), LocalTime.of(22, 30), 5);
-        line.addLineStation(new Edge(null, 1L, 10, 10));
-        line.addLineStation(new Edge(1L, 2L, 10, 10));
-        line.addLineStation(new Edge(2L, 3L, 10, 10));
+        line.addEdge(new Edge(null, 1L, 10, 10));
+        line.addEdge(new Edge(1L, 2L, 10, 10));
+        line.addEdge(new Edge(2L, 3L, 10, 10));
     }
 
     @DisplayName("노선에 첫번째 역 추가")
     @Test
-    void addLineStation() {
+    void addEdge() {
         Long addStationId = 4L;
-        line.addLineStation(new Edge(null, addStationId, 10, 10));
+        line.addEdge(new Edge(null, addStationId, 10, 10));
 
         Assertions.assertThat(line.getEdges().getEdges()).hasSize(4);
         Edge edge = line.getEdges().getEdges().stream()
@@ -39,7 +39,7 @@ public class LineTest {
 
     @DisplayName("노선의 지하철 역 검색")
     @Test
-    void getLineStations() {
+    void getEdges() {
         List<Long> stationIds = line.getStationIds();
 
         assertThat(stationIds.size()).isEqualTo(3);
@@ -51,8 +51,8 @@ public class LineTest {
     @DisplayName("노선에서 역 삭제")
     @ParameterizedTest
     @ValueSource(longs = {1L, 2L, 3L})
-    void removeLineStation(Long stationId) {
-        line.removeLineStationById(stationId);
+    void removeEdge(Long stationId) {
+        line.removeEdgeById(stationId);
 
         Assertions.assertThat(line.getEdges().getEdges()).hasSize(2);
     }
